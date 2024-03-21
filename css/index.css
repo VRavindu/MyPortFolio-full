@@ -1,0 +1,425 @@
+@font-face {
+    font-family: Level_01;
+    src: url(/assets/fonts/Level\ 01\ Bold.ttf);
+}
+@font-face {
+    font-family: Candy_Factory;
+    src: url(/assets/fonts/Candy\ Factory.otf);
+}
+@font-face {
+    font-family: Traffic;
+    src: url(/assets/fonts/Traffic.ttf);
+}
+@font-face {
+    font-family: Baroneys;
+    src: url(/assets/fonts/Baroneys-Solid.otf);
+}
+@font-face {
+    font-family: Neon_Spooky;
+    src: url(/assets/fonts/Neon\ Spooky.otf);
+}
+@font-face {
+    font-family: VALKOCAPELA;
+    src: url(/assets/fonts/VALKOCAPELARegular.ttf);
+}
+@font-face {
+    font-family: Beauty;
+    src: url(/assets/fonts/Beauty\ Glitch\ Demo.otf);
+}
+@font-face {
+    font-family: TypoRound;
+    src: url(/assets/fonts/Typo_Round_Regular_Demo.otf);
+}
+/* -------------------------------- MAIN -------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+}
+
+#hello {
+    color: white;
+    font-family: Poppins;
+    font-size: 55px;
+    margin: 10%;
+}
+#f-name {
+    color: #0044ff;
+    font-size: 120px;
+    margin-left: 10%;
+    font-family: Traffic;
+    text-shadow: 3px 3px 5px #68a3c5, 5px 5px 5px #437eb6;
+    transform: perspective(300px) rotateX(20deg);
+    
+ }
+#l-name {
+    color: #fff;
+    font-size: 120px;
+    margin-left: 25%;
+    font-family: Traffic;
+    text-shadow: 3px 3px 5px #b3b3b3, 5px 5px 0px #808080;
+    transform: perspective(300px) rotateX(20deg);
+}
+#footer-text{
+    font-family: VALKOCAPELA;
+    text-align: center;
+    font-size: 45px;
+    margin-top: -3%;
+
+    color: transparent;
+    background-image: url(/assets/image/1234.gif);
+    background-clip: text;
+}
+#footer-text img {
+    padding-top: 30px;
+    width: 40px;
+}
+.main-content {
+    justify-content: center;
+    max-width: 90rem;
+    width: 92%;
+}
+#video {
+    position:absolute;
+    background-size: cover;
+    width: 99vW;
+    opacity: 0.5;
+    margin-top: -250px;
+    background-position: center;
+}
+.desc {
+    position: relative;
+}
+
+/* -------------------------------- PROJECTS --------------------------------  */
+.project, .my-details, .contact{
+    padding: 5.5% 5%;
+}
+
+#header {
+    background-color: #000;
+}
+
+.logo{
+    width: 70px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+nav ul li a {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    margin: 25px;
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 5px;
+    background: #0044ff;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+.title {
+    color: #fff;
+    font-family: TypoRound;
+    font-size: 30px;
+    padding-top: 40px;
+}
+
+.title h1{
+    margin-left: 75px;
+    padding: 10px 5px;
+}
+
+.title hr {
+    height: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.project-list ul li{
+    color: #ffffff;
+    margin: 50px 120px;
+    height: 20px;
+    list-style-image:url(/assets/icon/list-icon.png) ;
+}
+
+.project-list ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
+.project-list ul li a:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    text-shadow: 3px 3px 2px #86c8ff;
+    transition: 0.5s;
+
+}
+
+
+/* -------------------------------- ABOUT --------------------------------  */
+
+.about {
+    display: flex;
+    flex-direction: row-reverse;
+    
+}
+
+#my-pic {
+    height: 500px;
+    margin-left: 100px;
+    margin-right: 30px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 700px;
+    color: #fff;
+    text-align: center;
+    margin-top: 100px;
+    font-family: Poppins;
+}
+.about-content p {
+    text-align: center;
+    font-size: 30px;
+}
+.about-content h4 {
+    font-size: 35px;
+}
+
+
+/* -------------------------------- Skills --------------------------------  */
+
+.skill-title {
+    padding-left: 100px ;
+    color: #fff;
+    font-size: 35px;
+    width: 150px;
+    stroke-width: 10px;
+}
+.skill-title hr {
+    border-radius: 10px;
+    height: 3px;
+    background-color: #fff;
+}
+.bar {
+    background-color: #ffffffda;
+    height: 50px;
+    width: 700px;
+    margin: 10px;
+    border-radius: 30px;
+}
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    padding-left: 200px;
+    gap: 10px;
+    width: 750px;
+    align-items: center;
+}
+.bar div {
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+}
+/* .bar h4 + h4 {
+    color: #000;
+    font-weight: bolder;
+
+} */
+
+.progress-bar h4 {
+    color: #fff;
+    font-family: Poppins;
+    font-size: 22px;
+    padding-left: 20px;
+    padding: 10px 30px;
+}
+.bar-1 {
+    width: 90%;
+    background-color: #ff2c2c;   
+}
+.bar-2 {
+    width: 75%;
+    background-color: #BB0092;   
+}
+.bar-3 {
+    width: 85%;
+    background-color: #4F197E;   
+}
+.bar-4 {
+    width: 65%;
+    background-color: #009243;   
+}
+.bar-5 {
+    width: 55%;
+    background-color: #0021CC;   
+}
+.bar-6 {
+    width: 70%;
+    background-color: #B45000;   
+}
+
+
+/* -------------------------------- CONTACT --------------------------------  */
+
+
+.contact-text h3{
+    font-family: "Akaya Kanadaka";
+    color: #fff;
+    font-size: 40px;
+    padding: 20px 60px;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 750px;
+    align-items: center;
+}
+
+#apps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-1{
+    display: flex;
+    width: 700px;
+    gap: 5px;
+    padding: 25px;
+    justify-content: space-between;
+}
+.row-2{
+    display: flex;
+    width: 410px;
+    gap: 5px;
+    padding: 25px;
+    justify-content: space-between;
+}
+.row-1 div img, .row-2 div img {
+    width: 60px;
+    height: 60px;
+}
+.row-1 div, .row-2 div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.row-1 a, .row-2 a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.facebook {
+    color: #1877F2;
+}
+.instagram {
+    color: #CC3699;
+}
+.twitter {
+    color: #1DA1F2;
+}
+.github {
+    color: #FFFFFF;
+}
+.linkedin {
+    color: #0A66C2;
+}
+
+/* ------------Email------------- */
+
+hr + h3 {
+    color: #fff;
+    padding: 20px 60px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.email-main {
+    /* width: 750px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-container {
+    display: flex;
+    gap: 70px;
+}
+.email-container input {
+    height: 135px;
+    width: 300px;
+}
+
+.col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.col-1 input {
+    height: 50px;
+    width: 300px;
+}
+
+input[type="text"] {
+    padding-left: 10px;
+}
+textarea {
+    padding: 10px 0 0 10px;
+}
+.send-btn {
+    border-radius: 30px;
+    height: 55px;
+    width: 120px;
+    margin: 50px;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-icon {
+    height: 28px;
+    margin: 5px;
+}
+
+.send-btn:hover {
+    box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.527);
+    background-color: #aaaaaa;
+}
+
+a:hover {
+    filter: drop-shadow(1px 2px 0px #ffaaaa) ;
+}

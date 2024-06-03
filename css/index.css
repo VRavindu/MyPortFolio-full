@@ -35,17 +35,70 @@
     margin: 0;
     padding: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
+
+/* -------------------Background Animation------------------- */
+.bgAnimation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    background: #1d1d1d;
+    filter: saturate(2);
+    overflow: hidden;
+}
+.colorBox {
+    z-index: 2;
+    filter: brightness(1.1);
+    transition: 2s ease;
+    position: relative;
+    margin: 2px;
+    background: #1d1d1d;
+}
+.colorBox:hover {
+    background: #008cff;
+    transition-duration: 0s;
+}
+.backAnim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #008cff;
+    filter: blur(60px);
+    animation: animBack 10s linear infinite;
+}
+
+@keyframes animBack {
+    0%{
+        top: -60px;
+    }
+    100%{
+        top: 120%;
+    }
+}
 
 body {
     background-color: #000;
 }
 
-#hello {
+#intro {
     color: white;
     font-family: Poppins;
     font-size: 55px;
     margin: 10%;
 }
+#hello{
+    margin-top: 10%;
+}
+
 #f-name {
     color: #0044ff;
     font-size: 120px;
@@ -73,19 +126,25 @@ body {
     background-image: url(/assets/image/1234.gif);
     background-clip: text;
 }
+.down-key{
+    pointer-events:all;
+    cursor:pointer;
+}
 #footer-text img {
     padding-top: 30px;
     width: 40px;
 }
 .main-content {
+    display: inline;
     justify-content: center;
     max-width: 90rem;
     width: 92%;
+    pointer-events: none;
 }
 #video {
     position:absolute;
     background-size: cover;
-    width: 99vW;
+    width: 98vW;
     opacity: 0.5;
     margin-top: -250px;
     background-position: center;
@@ -95,8 +154,8 @@ body {
 }
 
 /* -------------------------------- PROJECTS --------------------------------  */
-.project, .my-details, .contact{
-    padding: 5.5% 5%;
+#project, #my-details, #contact{
+    padding: 8% 5%;
 }
 
 #header {
@@ -111,11 +170,16 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin:0 30px;
 }
 nav ul li {
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
+}
+#burg-btn {
+    width: 30px;
+    display: none;
 }
 nav ul li a {
     color: #fff;
@@ -124,7 +188,7 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     position: relative;
-    margin: 25px;
+    margin: 20px;
 }
 
 nav ul li a::after {
@@ -162,7 +226,7 @@ nav ul li a:hover::after{
 .project-list ul li{
     color: #ffffff;
     margin: 50px 120px;
-    height: 20px;
+    /* height: 20px; */
     list-style-image:url(/assets/icon/list-icon.png) ;
 }
 
@@ -177,7 +241,53 @@ nav ul li a:hover::after{
     font-size: 28px;
     text-shadow: 3px 3px 2px #86c8ff;
     transition: 0.5s;
+}
+.project-preview img{
+    width: 35%;
+    object-fit: contain;
+}
 
+.project-preview img {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 5s ease;
+    margin: 5%;
+    height: 350px;
+}
+
+.project-preview img.show {
+    opacity: 1;
+    animation: fadeIn 2s ease forwards;
+}
+
+.project-preview img.hide {
+    animation: fadeOut 3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        border-radius: 10%;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        border-radius: 10%
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+
+.works{
+    display: flex;
 }
 
 
@@ -230,8 +340,8 @@ nav ul li a:hover::after{
 }
 .bar {
     background-color: #ffffffda;
-    height: 50px;
-    width: 700px;
+    /* height: 3%; */
+    width: 50%;
     margin: 10px;
     border-radius: 30px;
 }
@@ -239,9 +349,9 @@ nav ul li a:hover::after{
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    padding-left: 200px;
+    /* padding-left: 25%; */
     gap: 10px;
-    width: 750px;
+    /* width: 10%; */
     align-items: center;
 }
 .bar div {
@@ -260,7 +370,7 @@ nav ul li a:hover::after{
     font-family: Poppins;
     font-size: 22px;
     padding-left: 20px;
-    padding: 10px 30px;
+    padding: 2% 2vw;
 }
 .bar-1 {
     width: 90%;
@@ -338,7 +448,7 @@ nav ul li a:hover::after{
 }
 .row-1 a, .row-2 a {
     text-decoration: none;
-    font-size: 20px;
+    /* font-size: 20px; */
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .facebook {
@@ -422,4 +532,958 @@ textarea {
 
 a:hover {
     filter: drop-shadow(1px 2px 0px #ffaaaa) ;
+}
+
+/* -*-*-*-*-*-*-*-*-*-*-*-*-*-RESPONSIVE-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+
+@media screen and (max-width: 1200px) {
+    #intro {
+        font-size: 45px;
+    }
+    #f-name, #l-name {
+        font-size: 100px;
+    }
+    #footer-text {
+        font-size: 37px;
+    }
+    #footer-text img{
+        width: 37px;
+    }
+    .bgAnimation {
+        height: 100vh;
+    }
+
+    /* -------------------------------- PROJECTS --------------------------------  */
+
+    .logo {
+        width: 60px;
+    }
+    nav ul li a {
+        font-size: 25px;
+    }
+    .project-list ul li a {
+        font-size: 20px;
+    }
+    /* .project-preview img{
+        width: 35%;
+    } */
+
+    /* -------------------------------- ABOUT --------------------------------  */
+
+    #my-pic {
+        height: 400px;
+        margin-left: 70px;
+    }
+    .about-content p {
+        font-size: 25px;
+    }
+    .about-content h4 {
+        font-size: 30px;
+    }
+}
+@media screen and (min-width: 865px) and (max-width: 1020px) {
+    #intro {
+        font-size: 40px;
+    }
+    #f-name, #l-name {
+        font-size: 85px;
+    }
+    #footer-text {
+        font-size: 33px;
+    }
+    #footer-text img{
+        width: 37px;
+    }
+    .bgAnimation {
+        height: 75vh;
+    }
+
+    /* -------------------------------- PROJECTS --------------------------------  */
+
+    .title {
+        font-size: 25px;
+    }
+    .title hr {
+        height: 4px;
+    }
+
+    .logo {
+        width: 55px;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    .project-list ul li a {
+        font-size: 18px;
+    }
+    /* .project-preview img{
+        width: 35%;
+    } */
+
+    /* -------------------------------- ABOUT --------------------------------  */
+
+    #my-pic {
+        height: 350px;
+        margin-left: 70px;
+    }
+    .about-content p {
+        font-size: 20px;
+    }
+    .about-content h4 {
+        font-size: 25px;
+    }
+
+    /* -------------------------------- Skills --------------------------------  */
+
+    .skill-title {
+        padding-left: 100px ;
+        font-size: 30px;
+    }
+    .bar div {
+        height: 40px;
+    }
+    .progress-bar h4 {
+        font-size: 18px;
+    }
+
+    /* -------------------------------- CONTACT --------------------------------  */
+
+    .contact-text h3{
+        font-size: 30px;
+    }
+    
+    .social{
+        width: 700px;
+    }
+    .row-1 div img, .row-2 div img {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* -------------Email-------------- */
+    
+    hr + h3 {
+        font-size: 25px;/
+    }
+    .email-container input {
+        height: 45px;
+        width: 220px;
+    }
+    #message {
+        /* margin-top: 20px; */
+        width: 300px;
+        height: 100px;
+    }
+    .send-btn{
+        margin: 30px;
+        height: 45px;
+        width: 90px;
+        font-size: 17px;
+    }
+    .btn-icon {
+        height: 23px;
+        margin: 5px;
+    }
+}
+@media screen and (min-width: 650px) and (max-width: 865px) {
+    #intro {
+        font-size: 28px;
+    }
+    #f-name {
+        font-size: 70px;
+        margin-left: 7%;
+    } 
+    #l-name {
+        font-size: 70px;
+        margin-left: 15%;
+    }
+    #footer-text {
+        font-size: 25px;
+    }
+    #footer-text img{
+        width: 32px;
+    }
+    .bgAnimation {
+        height: 60vh;
+    }
+
+    /* -------------------------------- PROJECTS --------------------------------  */
+
+    .title {
+        font-size: 20px;
+    }
+    .title hr {
+        height: 4px;
+    }
+
+    .logo {
+        width: 35px;
+    }
+    nav ul li a {
+        font-size: 15px;
+        margin: 12px;
+    }
+    .project-list ul li a:hover{
+        font-size: 20px;
+    }
+    .project-list ul li {
+        color: #ffffff;
+        margin: 25px 40px;
+    }
+    .project-preview img {
+        height: 35vh;
+    }
+
+    /* -------------------------------- ABOUT --------------------------------  */
+
+    #my-pic {
+        height: 280px;
+        margin-left: 0px;
+    }
+    .about-content p {
+        font-size: 18px;
+    }
+    .about-content h4 {
+        font-size: 21px;
+    }
+
+    /* -------------------------------- Skills --------------------------------  */
+
+    .skill-title {
+        padding-left: 80px ;
+        font-size: 25px;
+    }
+
+    /* -------------------------------- CONTACT --------------------------------  */
+
+    .row-1{
+        width: 550px;
+    } 
+    .row-2{
+        width: 380px;
+    }
+    .row-1 div img, .row-2 div img {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* -------------Email-------------- */
+    
+    hr + h3 {
+        font-size: 25px;/
+    }
+    .email-container input {
+        height: 40px;
+        width: 200px;
+    }
+    #message {
+        /* margin-top: 20px; */
+        width: 280px;
+        height: 100px;
+    }
+    
+    .email-container {
+        gap: 40px;
+    }
+    .send-btn{
+        margin: 30px;
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+    }
+    .btn-icon {
+        height: 20px;
+        margin: 5px;
+    }
+}
+@media screen and (min-width: 550px) and (max-width: 650px) {
+    #intro {
+        margin-top: 0;
+        font-size: 25px;
+        padding-top: 150px;
+        text-align: center;
+    }
+    #f-name {
+        font-size: 60px;
+        margin-top: 10px;
+    } 
+    #l-name {
+        font-size: 60px;
+        margin-left: 12%;
+    }
+    #footer-text {
+        font-size: 20px;
+        margin-top: 30%;
+    }
+    #footer-text img{
+        width: 25px;
+    }
+    .bgAnimation {
+        height: 75vh;
+    }
+
+    /* -------------------------------- PROJECTS --------------------------------  */
+
+    .title {
+        font-size: 18px;
+    }
+    .title hr {
+        height: 4px;
+    }
+
+    .logo {
+        width: 30px;
+    }
+    nav ul li {
+        display: none;
+    }
+    #burg-btn {
+        display: inline-block;
+    }
+    .works {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-preview img {
+        /* opacity: 1; */
+        height: 150px;
+        margin-bottom: 20%;
+    }
+    .project {
+        margin-top: 10%;
+    }
+    .project-list ul li a {
+        font-size: 20px;
+    }
+    .project-list ul li a:hover{
+        font-size: 20px;
+    }
+
+    /* -------------------------------- ABOUT --------------------------------  */
+
+    #my-details {
+        padding-top: 50%;
+    }
+    #my-pic {
+        height: 240px;
+        margin-left: 20px;
+    }
+    .about-content p {
+        font-size: 15px;
+    }
+    .about-content h4 {
+        font-size: 18px;
+    }
+    .about {
+        display: flex;
+        flex-direction: column;
+    }
+    .about div {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+    .about-content {
+        height: 50px;
+        width: 80vw;
+        margin-top: 00px;
+    }
+
+
+    /* -------------------------------- Skills --------------------------------  */
+
+    .skill-title {
+        padding-left: 80px ;
+        font-size: 20px;
+    }
+
+    /* -------------------------------- CONTACT --------------------------------  */
+
+    .home-icon {
+        width: 35px;
+    }
+    .row-1{
+        width: 520px;
+    } 
+    .row-2{
+        width: 350px;
+    }
+    .row-1 div img, .row-2 div img {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* -------------Email-------------- */
+    
+    hr + h3 {
+        font-size: 20px;
+    }
+
+    .email-container input {
+        height: 35px;
+        width: 200px;
+    }
+    #message {
+        /* margin-top: 20px; */
+        width: 250px;
+        height: 80px;
+    }
+    .send-btn{
+        margin: 10px;
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+    }
+    .btn-icon {
+        height: 18px;
+        margin: 5px;
+    }
+    .email-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .email-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+@media screen and (min-width: 460px) and (max-width: 550px) {
+    #intro{
+        margin-top: 0;
+        padding-top: 150px;
+        text-align: center;
+    }
+    #hello {
+        font-size: 25px;
+        margin-left: 0;
+        padding-bottom: 0%;
+    }
+    #f-name {
+        margin-top: 10px;
+        margin-left: 0;
+        font-size: 40px;
+        text-shadow: 1px 1px 2px #68a3c5, 2px 2px 2px #437eb6;
+    }
+    #l-name {
+        font-size: 40px;
+        margin-left: 0;
+    }
+    #footer-text {
+        font-size: 15px;
+        margin-top: 30%;
+        margin-left: 0px;
+    }
+    .bgAnimation {
+        height: 73vh;
+    }
+
+    /* -------------------------------- PROJECTS --------------------------------  */
+
+    .title {
+        font-size: 15px;
+    }
+    .title hr {
+        height: 2px;
+    }
+
+    .logo {
+        width: 25px;
+    }
+    nav ul li {
+        display: none;
+    }
+    #burg-btn {
+        display: inline-block;
+    }
+
+    /* -------------------------------- ABOUT --------------------------------  */
+
+    #my-details {
+        padding-top: 50%;
+    }
+    .about {
+        display: flex;
+        flex-direction: column;
+    }
+    .about div {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    #my-pic {
+        height: 200px;
+    }
+
+    .about-content {
+        height: 50px;
+        width: 80vw;
+        margin-top: 00px;
+    }
+    .about-content p {
+        text-align: center;
+        font-size: 15px;
+    }
+    .about-content h4 {
+        font-size: 15px;
+    }
+
+
+    /* -------------------------------- Skills --------------------------------  */
+
+    .skill-title {
+        padding-left: 80px ;
+        font-size: 20px;
+    }
+    .bar div {
+        height: 30px;
+    }
+    .progress-bar h4 {
+        font-size: 13px;
+        padding: 3% 2vw;
+    }
+
+    /* -------------------------------- CONTACT --------------------------------  */
+
+    .contact-text h3{
+        font-size: 25px;
+    }
+    .home-icon {
+        width: 32px;
+    }
+    .row-1{
+        width: 450px;
+    } 
+    .row-2{
+        width: 280px;
+    }
+    .row-1 div img, .row-2 div img {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* -------------Email-------------- */
+    
+    hr + h3 {
+        font-size: 20px;/
+    }
+    .email-container input {
+        height: 35px;
+        width: 160px;
+    }
+    #message {
+        width: 200px;
+        height: 90px;
+    }
+    .send-btn{
+        margin: 15px;
+        height: 40px;
+        width: 80px;
+        font-size: 15px;
+    }
+    .btn-icon {
+        height: 20px;
+        margin: 5px;
+    }
+    .email-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .email-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 376px) and (max-width: 460px) {
+    #intro{
+        margin-top: 0;
+        padding-top: 100px;
+        text-align: center;
+    }
+    #hello {
+        font-size: 25px;
+        margin-left: 0;
+    }
+    #f-name {
+        margin-left: 0;
+        font-size: 50px;
+        text-shadow: 1px 1px 2px #68a3c5, 2px 2px 2px #437eb6;
+    }
+    #l-name {
+        font-size: 50px;
+        margin-left: 0;
+    }
+    #hello, #f-name, #l-name {
+        display: block;
+        margin-bottom: 10px;
+    }
+    #footer-text {
+        font-size: 15px;
+        margin-top: 40%;
+        margin-left: 0px;
+    }
+    .bgAnimation {
+        height: 90vh;
+    }
+
+
+/* -------------------------------- PROJECTS --------------------------------  */
+    .project {
+        margin-top: 10%;
+    }
+    .logo{
+    width: 40px;
+    }
+    .title {
+        font-size: 15px;
+        text-align: center;
+    }
+    .title h1 {
+        margin: 0;
+    }
+
+    nav ul li {
+        display: none;
+    }
+    #burg-btn {
+        display: inline-block;
+    }
+
+    .project-preview img {
+        /* opacity: 1; */
+        height: 150px;
+        margin-bottom: 20%;
+    }
+    .works {
+        display: inline;
+    }
+    .title hr {
+        height: 1.8px;
+    }
+    .project-list ul li{
+        margin: 25px 50px;
+        height: 10px;
+    }
+    .project-list ul li a{
+        font-size: 15px;
+    }
+    .project-list ul li a:hover{
+        font-size: 28px;
+        text-shadow: 3px 3px 2px #86c8ff;
+        transition: 0.5s;
+    }
+
+/* -------------------------------- ABOUT --------------------------------  */
+    #my-details {
+        padding-top: 50%;
+    }
+    .about {
+        display: flex;
+        flex-direction: column;
+    }
+    .about div {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    #my-pic {
+        height: 150px;
+        /* margin-left: 100px;
+        margin-right: 30px; */
+    }
+
+    .about-content {
+        height: 50px;
+        width: 80vw;
+        margin-top: 00px;
+    }
+    .about-content p {
+        text-align: center;
+        font-size: 15px;
+    }
+    .about-content h4 {
+        font-size: 15px;
+    }
+/* -------------------------------- Skills --------------------------------  */
+
+    .skills{
+        margin-top: 30%;
+    }
+    .skill-title {
+        font-size: 20px;
+        text-align: center;
+    }
+    .bar {
+        /* width: 80%; */
+        height: 35px;
+        gap: 10px;
+    }
+    .progress-bar h4 {
+        font-size: 15px;
+        padding: 5% 15%;
+    }
+    .bar div {
+        border-radius: 30px;
+        height: 35px;
+        display: flex;
+    }
+
+/* -------------------------------- CONTACT --------------------------------  */
+
+    .contact-text h3{
+        font-size: 20px;
+        padding: 20px 60px;
+    }
+    .social {
+        width: 100px;
+        display: flex;
+        flex-direction: row;
+
+    }
+    .row-1, .row-2{
+        width: 100px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .row-1 div img, .row-2 div img {
+        width: 25px;
+        height: 25px;
+    }
+    .row-1 div, .row-2 div{
+        display: flex;
+    }
+
+    /* -------------Email-------------- */
+    
+    hr + h3 {
+        font-size: 15px;
+    }
+
+    .email-container input {
+        height: 35px;
+        width: 200px;
+    }
+    #message {
+        /* margin-top: 20px; */
+        width: 250px;
+        height: 80px;
+    }
+    .send-btn{
+        margin: 10px;
+        height: 35px;
+        width: 70px;
+        font-size: 12px;
+    }
+    .btn-icon {
+        height: 18px;
+        margin: 5px;
+    }
+    .email-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .email-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+}
+@media screen and (max-width: 376px) {
+    #intro{
+        margin-top: 0;
+        padding-top: 150px;
+        text-align: center;
+    }
+    #hello {
+        font-size: 25px;
+        margin-left: 0;
+        padding-bottom: 0%;
+    }
+    #f-name {
+        margin-top: 10px;
+        margin-left: 0;
+        font-size: 40px;
+        text-shadow: 1px 1px 2px #68a3c5, 2px 2px 2px #437eb6;
+    }
+    #l-name {
+        font-size: 40px;
+        margin-left: 0;
+    }
+    #footer-text {
+        font-size: 15px;
+        margin-top: 30%;
+        margin-left: 0px;
+    }
+    .bgAnimation {
+        height: 73vh;
+    }
+
+
+/* -------------------------------- PROJECTS --------------------------------  */
+    .project {
+        margin-top: 10%;
+    }
+    .logo{
+    width: 40px;
+    }
+    .title {
+        font-size: 15px;
+        text-align: center;
+    }
+    .title h1 {
+        margin: 0;
+    }
+
+    nav ul li {
+        display: none;
+    }
+    #burg-btn {
+        display: inline-block;
+    }
+
+    .project-preview img {
+        /* opacity: 1; */
+        height: 150px;
+        margin-bottom: 20%;
+    }
+    .works {
+        display: inline;
+    }
+    .title hr {
+        height: 1.8px;
+    }
+    .project-list ul li{
+        margin: 25px 50px;
+        height: 10px;
+    }
+    .project-list ul li a{
+        font-size: 15px;
+    }
+    .project-list ul li a:hover{
+        font-size: 20px;
+        text-shadow: 3px 3px 2px #86c8ff;
+        transition: 0.5s;
+    }
+
+/* -------------------------------- ABOUT --------------------------------  */
+    #my-details {
+        padding-top: 50%;
+    }
+    .about {
+        display: flex;
+        flex-direction: column;
+    }
+    .about div {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    #my-pic {
+        height: 150px;
+        /* margin-left: 100px;
+        margin-right: 30px; */
+    }
+
+    .about-content {
+        height: 50px;
+        width: 80vw;
+        margin-top: 00px;
+    }
+    .about-content p {
+        text-align: center;
+        font-size: 15px;
+    }
+    .about-content h4 {
+        font-size: 15px;
+    }
+/* -------------------------------- Skills --------------------------------  */
+
+    .skills{
+        margin-top: 30%;
+    }
+    .skill-title {
+        font-size: 20px;
+        text-align: center;
+    }
+    .bar {
+        /* width: 80%; */
+        height: 35px;
+        gap: 10px;
+    }
+    .progress-bar h4 {
+        font-size: 15px;
+        padding: 5% 15%;
+    }
+    .bar div {
+        border-radius: 30px;
+        height: 35px;
+        display: flex;
+    }
+
+/* -------------------------------- CONTACT --------------------------------  */
+
+    .contact-text h3{
+        font-size: 20px;
+        padding: 20px 60px;
+    }
+    .social {
+        width: 100px;
+        display: flex;
+        flex-direction: row;
+
+    }
+    .row-1, .row-2{
+        width: 100px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .row-1 div img, .row-2 div img {
+        width: 25px;
+        height: 25px;
+    }
+    .row-1 div, .row-2 div{
+        display: flex;
+    }
+
+    /* -------------Email-------------- */
+    
+    hr + h3 {
+        font-size: 15px;
+    }
+
+    .email-container input {
+        height: 35px;
+        width: 200px;
+    }
+    #message {
+        /* margin-top: 20px; */
+        width: 250px;
+        height: 80px;
+    }
+    .send-btn{
+        margin: 10px;
+        height: 35px;
+        width: 70px;
+        font-size: 12px;
+    }
+    .btn-icon {
+        height: 18px;
+        margin: 5px;
+    }
+    .email-main {
+        display: flex;
+        flex-direction: column;
+    }
+    .email-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
 }

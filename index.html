@@ -8,17 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet">
 </head>
 <body>
+    
+    </div>
     <!-- -------------------------------- HOME -------------------------------- -->
     <div id="home">
+        <div class="bgAnimation" id="bgAnimation">
+            <div class="backAnim"></div>
+        </div>
         <div class="main-content">
-            <video id="video" src="/assets/video/CubesVideo.mov" autoplay muted loop></video>
+            
             <div class="desc">
                 <div class="name">
-                    <h1 id="hello">Hey ! I am <br> <span id="f-name">Ravindu</span> <span id="l-name">Hewarathna</span></h1>
+                    <h1 id="intro"> <span id="hello">Hey ! I am </span> <br> <span id="f-name">Ravindu</span> <span id="l-name">Hewarathna</span></h1>
                 </div>
                 <div id="footer-text">
                     <h4>Software Engineer, Developer</h4>
-                    <img src="/assets/icon/chevron-circle-down-alt.svg">
+                    <a href="#project">
+                        <img src="/assets/icon/chevron-circle-down-alt.svg" class="down-key">
+                    </a>
+                    
                 </div>
             </div>
         </div>
@@ -27,30 +35,44 @@
     <!---------------------------------- PROJECTS ---------------------------------->
 
     <div id="header">
-        <div class="project">
+        <section id="project">
             <nav>
-                <img src="/assets/image/logo.png" class="logo">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">PROJECTS</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                </ul>
+                <img src="/assets/image/home.png" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#project">PROJECTS</a></li>
+                        <li><a href="#my-details">ABOUT</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                        <img id="burg-btn" src="/assets/icon/bars.svg" alt="">
+                    </ul>
+                </nav>
+                
             </nav>
             <div class="title">
                 <h1>WORKS</h1>
                 <hr>
             </div>
-            <div class="project-list">
-                <ul>
-                    <li><a href="https://github.com/VRavindu/Garage-Management-System-Layered-Architecture"target="_blank">Garage Management System</a></li>
-                    <li><a href="https://github.com/VRavindu/Chat-Application" target="_blank">Chat Application</a></li>
-                    <li><a href="https://github.com/VRavindu/Stock-Management-System"target="_blank">Stock Management System</a></li>
-                    <li><a href="https://github.com/VRavindu/Connect-4"target="_blank">Mini Game - Connect 4</a></li>
-                    <li><a href="https://github.com/VRavindu/Online-Library-Management-System-ORM-CW"target="_blank">Library Management System</a></li>
-                </ul>
+            <div class="works">
+                <div class="project-list">
+                    <ul>
+                        <li onmouseover="showImage('pr1')" onmouseout="hideImage('pr1')"><a href="https://github.com/VRavindu/Garage-Management-System-Layered-Architecture"target="_blank">Garage Management System</a></li>
+                        <li onmouseover="showImage('pr2')" onmouseout="hideImage('pr2')"><a href="https://github.com/VRavindu/Chat-Application" target="_blank">Chat Application</a></li>
+                        <li onmouseover="showImage('pr3')" onmouseout="hideImage('pr3')"><a href="https://github.com/VRavindu/Stock-Management-System"target="_blank">Stock Management System</a></li>
+                        <li onmouseover="showImage('pr4')" onmouseout="hideImage('pr4')"><a href="https://github.com/VRavindu/Connect-4"target="_blank">Mini Game - Connect 4</a></li>
+                        <li onmouseover="showImage('pr5')" onmouseout="hideImage('pr5')"><a href="https://github.com/VRavindu/Online-Library-Management-System-ORM-CW"target="_blank">Library Management System</a></li>
+                    </ul>
+                </div>
+                <div class="project-preview">
+                    <img id="pr1" src="/assets/image/GMS-cover.png" alt="">
+                    <img id="pr2" src="/assets/image/Chat-cover.png" alt="">
+                    <img id="pr3" src="/assets/image/SMS-cover.png" alt="">
+                    <img id="pr4" src="/assets/image/connect4-cover.jfif" alt="">
+                    <img id="pr5" src="/assets/image/Libray-cover.png" alt="">
+                </div>
+                <br>
             </div>
-        </div>
+        </section>
     </div>
 
 
@@ -58,7 +80,7 @@
 
 
     <div id="header">
-        <div class="my-details">
+        <section id="my-details">
             <div class="title">
                 <h1>ABOUT</h1>
                 <hr>
@@ -75,7 +97,7 @@
                         all the way to large enterprise corporations.</p>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <!-- -------------------------------- SKILLS -------------------------------- -->
@@ -130,7 +152,7 @@
 
 
     <div id="header">
-        <div class="contact">
+        <section id="contact">
             <a href="#"><img src="/assets/icon/smart-home.svg" class="home-icon"></a>
             <div class="title">
                 <h1>CONTACT</h1>
@@ -197,14 +219,14 @@
                             <textarea required="" cols="45" rows="8" class="contact__form-input" placeholder="Enter Your Message" name="message" id="message"></textarea>
                         </div>
                     </div>
-                    <div>
+                    <div id="btn">
                         <button class="send-btn">Send <img src="/assets/icon/send.svg" class="btn-icon"></button>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
-    
+    <script src="/js/index.js"></script>
 </body>
 </html>

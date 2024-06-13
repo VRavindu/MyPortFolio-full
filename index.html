@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Ravindu Hewarathna</title>
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="icon" href="/assets/image/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    </div>
     <!-- -------------------------------- HOME -------------------------------- -->
+    <div class="bgAnimation" id="bgAnimation">
+        <div class="backAnim"></div>
+    </div>
     <div id="home">
-        <div class="bgAnimation" id="bgAnimation">
-            <div class="backAnim"></div>
-        </div>
         <div class="main-content">
             
             <div class="desc">
@@ -26,29 +26,31 @@
                     <a href="#project">
                         <img src="/assets/icon/chevron-circle-down-alt.svg" class="down-key">
                     </a>
-                    
                 </div>
             </div>
         </div>
     </div>
 
-    <!---------------------------------- PROJECTS ---------------------------------->
+    <!---------------------------------- NAV BAR ---------------------------------->
 
+    <nav id="navigation">
+        <img src="/assets/image/logo.png" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#project">PROJECTS</a></li>
+                <li><a href="#my-details">ABOUT</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+                <img id="burg-btn" src="/assets/icon/bars.svg" alt="">
+            </ul>
+        </nav>
+    </nav>
+
+    <!---------------------------------- PROJECTS ---------------------------------->
     <div id="header">
         <section id="project">
-            <nav>
-                <img src="/assets/image/home.png" class="logo">
-                <nav>
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#project">PROJECTS</a></li>
-                        <li><a href="#my-details">ABOUT</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                        <img id="burg-btn" src="/assets/icon/bars.svg" alt="">
-                    </ul>
-                </nav>
-                
-            </nav>
+            
             <div class="title">
                 <h1>WORKS</h1>
                 <hr>
@@ -102,7 +104,7 @@
 
     <!-- -------------------------------- SKILLS -------------------------------- -->
 
-    <div class="skills">
+    <section id="skills">
         <div class="skill-title">
             <h2>Skills</h2>
             <hr>
@@ -146,7 +148,7 @@
             </div>
             <br><br>
         </div>
-    </div>
+    </section>
 
     <!-- -------------------------------- CONTACT -------------------------------- -->
 
@@ -165,44 +167,14 @@
                 <div id="apps">
                     <div class="social">
                         <div class="row-1">
-
-                            <a href="https://twitter.com/Mr_VRavindu" target="_blank">
-                                <div class="twitter">
-                                    <img src="/assets/icon/twitter.svg" >
-                                    <h3>Twitter</h3>
-                                </div>
-                            </a>
-
-                            <a href="https://www.instagram.com/mr_ravindu_/" target="_blank">
-                                <div class="instagram">
-                                    <img src="/assets/icon/instagram.svg" >
-                                    <h3>Instagram</h3>
-                                </div>
-                            </a>
-
-                            <a href="https://facebook.com/vimukthi.ravindu.12" target="_blank">
-                                <div class="facebook">
-                                    <img src="/assets/icon/facebook-color.svg" >
-                                    <h3>Facebook</h3>
-                                </div>
-                            </a>
+                            <a href="https://twitter.com/Mr_VRavindu" target="_blank"><button class="social-btn" id="twitter"><img src="/assets/icon/twitter.svg"> Twitter </button></a>
+                            <a href="https://www.instagram.com/mr_ravindu_/" target="_blank"><button class="social-btn" id="instagram"><img src="/assets/icon/instagram.svg" > Instagram</button></a>
+                            <a href="https://facebook.com/vimukthi.ravindu.12" target="_blank"><button class="social-btn" id="facebook"><img src="/assets/icon/facebook-color.svg" > Facebook</button></a>
                         </div>
 
                         <div class="row-2">
-
-                            <a href="https://github.com/VRavindu" target="_blank">
-                                <div class="github">
-                                    <img src="/assets/icon/github.svg" >
-                                    <h3>GitHub</h3>
-                                </div>
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/vimukthi-ravindu/" target="_blank">
-                                <div class="linkedin">
-                                    <img src="/assets/icon/linkedin.svg" >
-                                    <h3>LinkedIn</h3>
-                                </div>
-                            </a>
+                            <a href="https://www.linkedin.com/in/vimukthi-ravindu/" target="_blank"><button class="social-btn" id="linkedin"><img src="/assets/icon/linkedin.svg" > LinkedIn</button></a>
+                            <a href="https://github.com/VRavindu" target="_blank"><button class="social-btn" id="github"><img src="/assets/icon/github.svg" > GitHub</button></a>
                         </div>
                     </div>
                 </div>

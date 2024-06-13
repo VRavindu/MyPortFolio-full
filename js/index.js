@@ -21,6 +21,22 @@ for (let i = 0; i < numOfColorBox; i++) {
     
 }
 
+// -------------------Nav Bar-------------------
+
+var projectSection = document.getElementById("project");
+    var projectSectionOffset = projectSection.offsetTop;
+
+window.addEventListener("scroll", function(){
+    var navbar = document.getElementById("navigation");
+    if(window.scrollY > projectSectionOffset) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+});
+
+
+
 
 // -------------------Project Image-------------------
 
